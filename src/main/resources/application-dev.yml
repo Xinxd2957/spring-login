@@ -1,0 +1,85 @@
+spring:
+  datasource:
+    # 使用阿里的Druid连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+    #com.mysql.jdbc.Driver 是 mysql-connector-java 5中的；com.mysql.cj.jdbc.Driver 是 mysql-connector-java 6中的
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #JDBC连接Mysql6 com.mysql.cj.jdbc.Driver， 需要指定时区serverTimezone:在设定时区的时候，如果设定serverTimezone=UTC，会比中国时间早8个小时，如果在中国，可以选择Asia/Shanghai或者Asia/Hongkong，如：serverTimezone=Asia/Shanghai
+    #不建议在没有服务器身份验证的情况下建立SSL连接。根据MySQL 5.5.45+、5.6.26+和5.7.6+的要求，如果不设置显式选项，则必须建立默认的SSL连接。需要通过设置useSSL=false来显式禁用SSL，或者设置useSSL=true并为服务器证书验证提供信任存储。
+    #zeroDateTimeBehavior=convertToNull：把日期转换为null代替异常处理
+    #allowMultiQueries=true：允许批量更新
+    url: jdbc:mysql://localhost:3306/ibms_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    username: root
+    password: 123456
+    druid:
+      # 连接池的配置信息
+      # 初始化大小，最小，最大
+      initial-size: 5
+      min-idle: 5
+      max-active: 50
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      # DruidFilterConfiguration
+      filter:
+        slf4j:
+          enabled: true
+        wall:
+          enabled: true
+        stat:
+          enabled: true
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
+      # 配置DruidStatFilter
+      web-stat-filter:
+        enabled: true
+        url-pattern: "/*"
+        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+      # 配置DruidStatViewServlet
+      stat-view-servlet:
+        url-pattern: "/druid/*"
+        # IP白名单(没有配置或者为空，则允许所有访问)
+        # allow: 127.0.0.1,192.168.46.120
+        # IP黑名单 (存在共同时，deny优先于allow)
+        # deny: 192.168.46.121
+        #  禁用HTML页面上的“Reset All”功能
+        reset-enable: false
+        # 登录名
+        login-username: admin
+        # 登录密码
+        login-password: 123456
+
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          google:
+#            clientId: "751568419037-bi93qs0qrannhb1psaupbuqu8qiqlb4l.apps.googleusercontent.com"
+#            clientSecret: "kZMz3KQtZVi2lHBn0AlqNLqD"
+#            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+#            scope:
+#              - email
+#              - profile
+
+server:
+  port: 9012
+
+# 打印mapper的sql执行
+logging:
+  level:
+    com.system.demo.mapper: debug
+
+#kafka:
+#  topic:
+#    user-community-role: user-community-role-dev
+
+#用户模块服务
+#fluvet-system-user-url: "http://localhost:8082/user-svc/"
+

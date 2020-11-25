@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+  
+  <!-- spring boot基本环境 -->
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.0.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    
+    
+    
+        <groupId>com.example</groupId>
+    <artifactId>spring-demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>spring-demo</name>
+    <description>spring-demo project</description>
+     <url>http://maven.apache.org</url>
+        <properties>
+     <!--  <java.version>13</java.version>  --> 
+        <swagger.version>2.9.2</swagger.version>
+        <fastjson.version>1.2.41</fastjson.version>
+        <druid.version>1.1.21</druid.version>
+        <mybatis.generator.version>1.3.7</mybatis.generator.version>
+        <mybatis.plus.version>3.2.0</mybatis.plus.version>
+        <okhttp.version>4.4.0</okhttp.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+   <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- 热部署 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional> <!-- 这个需要为 true 热部署才有效 -->
+        </dependency>
+
+<!--JPA -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-security</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.security</groupId>-->
+<!--            <artifactId>spring-security-oauth2-client</artifactId>-->
+<!--        </dependency>-->
+
+        <!--swagger相关引入-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <!--阿里fastjson-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
+        <!-- mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- 阿里系的Druid依赖包-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+        <!-- mybatis-plus引入 -->
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus-boot-starter</artifactId>-->
+<!--            <version>${mybatis.plus.version}</version>-->
+<!--        </dependency>-->
+        <!-- 代码快速生成器 -->
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus-generator</artifactId>-->
+<!--            <version>3.3.0</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+        <!--简化javabean的编写-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+		<!-- JWT TOKEN -->
+		<dependency>
+      		<groupId>com.auth0</groupId>
+      		<artifactId>java-jwt</artifactId>
+      		<version>3.8.2</version>
+    		</dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.2.3</version>
+            <classifier>jdk15</classifier><!-- jdk版本 -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+            <version>4.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.1</version>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-codegen-maven-plugin</artifactId>
+                <version>2.4.14</version>
+                <executions>
+
+<!--                    <execution>-->
+<!--                        <id>user-svc</id>-->
+<!--                        <goals>-->
+<!--                            <goal>generate</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            &lt;!&ndash;OpenAPI Spec文件路径&ndash;&gt;-->
+<!--                            <inputSpec>http://localhost:8082/user-svc/v2/api-docs</inputSpec>-->
+<!--                            &lt;!&ndash;output-目标输出路径（默认为${project.build.directory}/generated-sources/swagger）&ndash;&gt;-->
+<!--                            <output>${project.basedir}</output>-->
+<!--                            &lt;!&ndash;目标生成语言&ndash;&gt;-->
+<!--                            <language>java</language>-->
+<!--                            <library>retrofit2</library>-->
+<!--                            &lt;!&ndash;设置代码包路径&ndash;&gt;-->
+<!--                            <modelPackage>${groupId}.repository.user.swagger.model</modelPackage>-->
+<!--                            <apiPackage>${groupId}.repository.user.swagger.api</apiPackage>-->
+<!--                            &lt;!&ndash;支持文件放基础库&ndash;&gt;-->
+<!--                            <invokerPackage>com.fluvet.common.swagger.internal</invokerPackage>-->
+<!--                            &lt;!&ndash;生成支持文件（true默认情况下）&ndash;&gt;-->
+<!--                            <generateSupportingFiles>false</generateSupportingFiles>-->
+<!--                            &lt;!&ndash;generateApiTests-生成API测试（true默认情况下，仅当，generateApis是true）&ndash;&gt;-->
+<!--                            <generateApiTests>false</generateApiTests>-->
+<!--                            &lt;!&ndash;generateApiDocumentation-生成API文档（true默认情况下，仅当，generateApis是true）&ndash;&gt;-->
+<!--                            <generateApiDocumentation>false</generateApiDocumentation>-->
+
+<!--                        </configuration>-->
+<!--                    </execution>-->
+
+
+<!--                    <execution>-->
+<!--                        <id>device-svc</id>-->
+<!--                        <goals>-->
+<!--                            <goal>generate</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            &lt;!&ndash;OpenAPI Spec文件路径&ndash;&gt;-->
+<!--                            <inputSpec>http://localhost:9009/community-svc/v2/api-docs</inputSpec>-->
+<!--                            &lt;!&ndash;output-目标输出路径（默认为${project.build.directory}/generated-sources/swagger）&ndash;&gt;-->
+<!--                            <output>${project.basedir}</output>-->
+<!--                            &lt;!&ndash;目标生成语言&ndash;&gt;-->
+<!--                            <language>java</language>-->
+<!--                            <library>retrofit2</library>-->
+<!--                            &lt;!&ndash;设置代码包路径&ndash;&gt;-->
+<!--                            <modelPackage>${groupId}.repository.community.swagger.model</modelPackage>-->
+<!--                            <apiPackage>${groupId}.repository.community.swagger.api</apiPackage>-->
+<!--                            &lt;!&ndash;支持文件放基础库&ndash;&gt;-->
+<!--                            <invokerPackage>com.fluvet.common.swagger.internal</invokerPackage>-->
+<!--                            &lt;!&ndash;生成支持文件（true默认情况下）&ndash;&gt;-->
+<!--                            <generateSupportingFiles>false</generateSupportingFiles>-->
+<!--                            &lt;!&ndash;generateApiTests-生成API测试（true默认情况下，仅当，generateApis是true）&ndash;&gt;-->
+<!--                            <generateApiTests>false</generateApiTests>-->
+<!--                            &lt;!&ndash;generateApiDocumentation-生成API文档（true默认情况下，仅当，generateApis是true）&ndash;&gt;-->
+<!--                            <generateApiDocumentation>false</generateApiDocumentation>-->
+
+<!--                        </configuration>-->
+<!--                    </execution>-->
+
+<!--                    <execution>-->
+<!--                        <id>system-device-svc</id>-->
+<!--                        <goals>-->
+<!--                            <goal>generate</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            &lt;!&ndash;OpenAPI Spec文件路径&ndash;&gt;-->
+<!--                            <inputSpec>http://localhost:9010/system-device-svc/v2/api-docs</inputSpec>-->
+<!--                            &lt;!&ndash;output-目标输出路径（默认为${project.build.directory}/generated-sources/swagger）&ndash;&gt;-->
+<!--                            <output>${project.basedir}</output>-->
+<!--                            &lt;!&ndash;目标生成语言&ndash;&gt;-->
+<!--                            <language>java</language>-->
+<!--                            <library>retrofit2</library>-->
+<!--                            &lt;!&ndash;设置代码包路径&ndash;&gt;-->
+<!--                            <modelPackage>${groupId}.repository.device.swagger.model</modelPackage>-->
+<!--                            <apiPackage>${groupId}.repository.device.swagger.api</apiPackage>-->
+<!--                            &lt;!&ndash;支持文件放基础库&ndash;&gt;-->
+<!--                            <invokerPackage>com.fluvet.common.swagger.internal</invokerPackage>-->
+<!--                            &lt;!&ndash;生成支持文件（true默认情况下）&ndash;&gt;-->
+<!--                            <generateSupportingFiles>false</generateSupportingFiles>-->
+<!--                            &lt;!&ndash;generateApiTests-生成API测试（true默认情况下，仅当，generateApis是true）&ndash;&gt;-->
+<!--                            <generateApiTests>false</generateApiTests>-->
+<!--                            &lt;!&ndash;generateApiDocumentation-生成API文档（true默认情况下，仅当，generateApis是true）&ndash;&gt;-->
+<!--                            <generateApiDocumentation>false</generateApiDocumentation>-->
+
+<!--                        </configuration>-->
+<!--                    </execution>-->
+
+                </executions>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
